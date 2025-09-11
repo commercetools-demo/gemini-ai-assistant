@@ -1,0 +1,13 @@
+node_modules
+coverage
+.terraform
+*.tfstate*
+*.tfvars
+
+.DS_Store
+.vscode
+build/
+.env
+public/
+dist/
+*/.yarn
