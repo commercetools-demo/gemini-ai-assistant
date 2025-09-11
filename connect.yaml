@@ -1,0 +1,43 @@
+deployAs:
+  - name: service
+    applicationType: service
+    endpoint: /service
+    configuration:
+      standardConfiguration:
+        - key: CTP_REGION
+          description: commercetools Composable Commerce API region
+          required: true
+          default: "us-central1.gcp"
+        - key: CTP_PROJECT_KEY
+          description: commercetools Composable Commerce project key
+          required: true
+        - key: CTP_CLIENT_ID
+          description: commercetools Composable Commerce client ID
+          required: true
+        - key: CTP_SCOPE
+          description: commercetools Composable Commerce client scope
+          required: true
+        - key: CORS_ALLOWED_ORIGINS
+          description: Comma separated list of allowed origins
+          default: "localhost:3000,localhost:5173,commercetools.com,frontend.site"
+          required: false
+        - key: AI_MODEL
+          description: AI model to use
+          default: "models/gemini-live-2.5-flash-preview"
+          required: true
+        - key: AI_VOICE
+          description: AI voice to use
+          default: "Aoede"
+          required: true
+        - key: AVAILABLE_TOOLS
+          description: Available tools stringified JSON.stringify(<tools-object>))
+          default: '{"product-search":{"read":true},"category":{"read":true},"cart":{"create":true,"read":true,"update":true}}'
+          required: false
+      securedConfiguration:
+        - key: CTP_CLIENT_SECRET
+          description: commercetools Composable Commerce client secret
+          required: true
+        - key: GOOGLE_AI_API_KEY
+          description: Google Gemini API key
+          required: true
+        

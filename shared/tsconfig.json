@@ -1,0 +1,38 @@
+{
+  "exclude": ["**/node_modules/**", "**/dist/**"],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    // See https://devblogs.microsoft.com/typescript/typescript-and-babel-7/
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveSymlinks": true,
+    "pretty": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "target": "ES2019",
+    "allowJs": true,
+    "noEmit": true,
+    "typeRoots": [
+      "@types",
+      // "@types-extensions",
+      "node_modules/@types"
+    ]
+  }
+}
