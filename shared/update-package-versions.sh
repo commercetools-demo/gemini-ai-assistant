@@ -40,10 +40,10 @@ print_help() {
 Update versions for all packages under packages/.
 
 Usage:
-  ./scripts/update-package-versions.sh --bump patch
-  ./scripts/update-package-versions.sh --bump minor
-  ./scripts/update-package-versions.sh --bump major
-  ./scripts/update-package-versions.sh --set 1.2.3
+  ./update-package-versions.sh --bump patch
+  ./update-package-versions.sh --bump minor
+  ./update-package-versions.sh --bump major
+  ./update-package-versions.sh --set 1.2.3
 
 Options:
   --bump [patch|minor|major]    Bump the current version (default: patch if neither --bump nor --set provided)
@@ -172,7 +172,7 @@ main() {
     
     # Set defaults
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    local repo_root="$(cd "$script_dir/.." && pwd)"
+    local repo_root="$(cd "$script_dir" && pwd)"
     local packages_dir="${PACKAGES_DIR:-$repo_root/packages}"
     
     # Validate packages directory
