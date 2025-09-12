@@ -33,6 +33,10 @@ deployAs:
           description: Available tools stringified JSON.stringify(<tools-object>))
           default: '{"product-search":{"read":true},"category":{"read":true},"cart":{"create":true,"read":true,"update":true}}'
           required: false
+        - key: FRONTEND_TOOLS
+          description: Array of extra tools which can be injected in the frontend. stringified JSON.stringify(<tools-object>))
+          default: '[{"name": "tool1","description": "tool1-description","parameters": {"type": "object","properties": {}}}]'
+          required: false
       securedConfiguration:
         - key: CTP_CLIENT_SECRET
           description: commercetools Composable Commerce client secret
