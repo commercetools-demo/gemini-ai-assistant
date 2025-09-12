@@ -1,19 +1,19 @@
 {
-  "name": "@commercetools-demo/ai-assistant-button",
-  "description": "AI Assistant Button for the commercetools platform",
+  "name": "@commercetools-demo/gemini-ai-assistant-button",
+  "description": "Gemini AI Assistant Button for the commercetools platform",
   "version": "1.1.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/commercetools-demo-ai-assistant-button.cjs.js",
-  "module": "dist/commercetools-demo-ai-assistant-button.esm.js",
+  "main": "dist/commercetools-demo-gemini-ai-assistant-button.cjs.js",
+  "module": "dist/commercetools-demo-gemini-ai-assistant-button.esm.js",
   "files": [
     "dist"
   ],
   "dependencies": {
     "@babel/runtime-corejs3": "^7.28.0",
-    "@commercetools-demo/ai-assistant-provider": "workspace:^",
+    "@commercetools-demo/gemini-ai-assistant-provider": "workspace:^",
     "@google/genai": "^1.19.0",
     "@heroicons/react": "^2.2.0",
     "react-syntax-highlighter": "^15.6.6",

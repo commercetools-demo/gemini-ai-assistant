@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { FunctionResponse, LiveServerToolCall } from '@google/genai';
-import { useLiveAPIContext } from '@commercetools-demo/ai-assistant-provider';
+import { useLiveAPIContext } from '@commercetools-demo/gemini-ai-assistant-provider';
 export default function Toolcall() {
   const { client, sdkTools, callSDKTool, callFrontendTool } = useLiveAPIContext();
 

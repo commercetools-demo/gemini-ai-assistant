@@ -1,13 +1,13 @@
 {
-  "name": "@commercetools-demo/ai-assistant-provider",
-  "description": "AI Assistant Provider for the commercetools platform",
+  "name": "@commercetools-demo/gemini-ai-assistant-provider",
+  "description": "Gemini AI Assistant Provider for the commercetools platform",
   "version": "1.1.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/commercetools-demo-ai-assistant-provider.cjs.js",
-  "module": "dist/commercetools-demo-ai-assistant-provider.esm.js",
+  "main": "dist/commercetools-demo-gemini-ai-assistant-provider.cjs.js",
+  "module": "dist/commercetools-demo-gemini-ai-assistant-provider.esm.js",
   "files": [
     "dist"
   ],

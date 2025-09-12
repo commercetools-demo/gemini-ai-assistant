@@ -16,13 +16,13 @@
 
 import { memo, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { useLoggerStore } from "@commercetools-demo/ai-assistant-provider";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { vs2015 as dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {
+  useLoggerStore,
   ClientContentLog as ClientContentLogType,
   StreamingLog,
-} from "@commercetools-demo/ai-assistant-provider";
+} from "@commercetools-demo/gemini-ai-assistant-provider";
 import {
   Content,
   LiveClientToolResponse,

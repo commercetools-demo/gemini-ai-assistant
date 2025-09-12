@@ -3,10 +3,9 @@
 import React, { memo, ReactNode, useEffect, useRef, useState } from 'react';
 import { MicrophoneIcon, NoSymbolIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import styled, { keyframes, css } from 'styled-components';
-import { useLiveAPIContext, AudioRecorder } from '@commercetools-demo/ai-assistant-provider';
+import { useLiveAPIContext, AudioRecorder } from '@commercetools-demo/gemini-ai-assistant-provider';
 import AudioPulse from '../audio-pulse/AudioPulse';
 import Toolcall from '../toolcall';
-import Logger from '../logger';
 
 export type ControlTrayProps = {
   children?: ReactNode;
