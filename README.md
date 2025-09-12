@@ -63,29 +63,52 @@ After deploying the connect service, integrate the AI assistant into your React 
 ### Installation
 
 ```bash
-npm install @commercetools-demo/gemini-ai-assistant-provider @commercetools-demo/gemini-ai-assistant-button
+npm install @commercetools-demo/gemini-ai-assistant-button
 ```
 
 ### Basic Usage
 
+
 ```tsx
-import { GeminiAIAssistantProvider } from '@commercetools-demo/gemini-ai-assistant-provider';
-import { GeminiAIAssistantButton } from '@commercetools-demo/gemini-ai-assistant-button';
+import { GeminiAIAssistant } from "@commercetools-demo/gemini-ai-assistant-button";
 
 function App() {
   return (
-    <GeminiAIAssistantProvider 
-      serviceEndpoint="https://your-deployed-service-endpoint.com/service"
-      projectKey="your-project-key"
+    <GeminiAIAssistant 
+      baseUrl="https://your-deployed-service-endpoint.com/service"
+      frontEndTools={[
+          {
+            name: "navigate_to_page",
+            description:
+              "...",
+            parameters: {
+              type: "object",
+              properties: {
+                page: {
+                  type: "string",
+                  ...
+              },
+            },
+            callTool: (args) => {
+              // Implement the tool logic here
+              return {
+                success: true,
+              };
+            },
+          },
+        ]}
     >
-      <div className="your-app">
-        {/* Your app content */}
-        <GeminiAIAssistantButton />
-      </div>
-    </GeminiAIAssistantProvider>
+     
+    </GeminiAIAssistant>
   );
 }
 ```
+
+***Note***: `frontEndTools` is an array of tools that can be injected in the frontend. This definition should also be compatible with the `FunctionDeclaration` type from `@google/genai` and passed as `FRONTEND_TOOLS` environment variable to the conector during deployment. It is an array of objects that have the following properties:
+- `name`: The name of the tool
+- `description`: The description of the tool
+- `parameters`: The parameters of the tool
+- `callTool`: The function to call the tool (Required for the frontend to call the tool but not required for the connector). This function should return an object.
 
 ## Development
 
