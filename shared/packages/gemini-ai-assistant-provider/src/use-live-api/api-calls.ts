@@ -1,7 +1,12 @@
-import { FrontendTool } from "./frontend-types";
+import { MCPContext } from "./frontend-types";
 
-export const getGeminiEphemeralToken = async (baseUrl: string) => {
-  const response = await fetch(`${baseUrl}/get-ephemeral-token`, {
+const getQueryString = (context?: MCPContext) => {
+  const queryParams = new URLSearchParams(context as Record<string, string>);
+  return queryParams.toString();
+};
+
+export const getGeminiEphemeralToken = async (baseUrl: string, context?: MCPContext) => {
+  const response = await fetch(`${baseUrl}/get-ephemeral-token?${getQueryString(context)}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -13,8 +18,8 @@ export const getGeminiEphemeralToken = async (baseUrl: string) => {
   return response.json();
 };
 
-export const getSDKTools = async (baseUrl: string) => {
-  const response = await fetch(`${baseUrl}/get-sdk-tools`, {
+export const getSDKTools = async (baseUrl: string, context?: MCPContext) => {
+  const response = await fetch(`${baseUrl}/get-sdk-tools?${getQueryString(context)}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -26,8 +31,8 @@ export const getSDKTools = async (baseUrl: string) => {
   return response.json();
 };
 
-export const getAIAgentProperties = async (baseUrl: string) => {
-  const response = await fetch(`${baseUrl}/get-ai-agent-properties`, {
+export const getAIAgentProperties = async (baseUrl: string, context?: MCPContext) => {
+  const response = await fetch(`${baseUrl}/get-ai-agent-properties?${getQueryString(context)}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -39,8 +44,8 @@ export const getAIAgentProperties = async (baseUrl: string) => {
   return response.json();
 };
 
-export const healthCheck = async (baseUrl: string) => {
-  const response = await fetch(`${baseUrl}/health-check`, {
+export const healthCheck = async (baseUrl: string, context?: MCPContext) => {
+  const response = await fetch(`${baseUrl}/health-check?${getQueryString(context)}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -55,9 +60,10 @@ export const healthCheck = async (baseUrl: string) => {
 export const callSDKTool = async (
   baseUrl: string,
   toolName: string,
-  toolArguments: any
+  toolArguments: any,
+  context?: MCPContext
 ): Promise<Record<string, any>> => {
-  const response = await fetch(`${baseUrl}/call-sdk-tool`, {
+  const response = await fetch(`${baseUrl}/call-sdk-tool?${getQueryString(context)}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

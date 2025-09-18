@@ -1,6 +1,6 @@
 import { createContext, FC, ReactNode, useContext } from "react";
 import { useLiveAPI, UseLiveAPIResults } from "../use-live-api";
-import { FrontendTool } from "../use-live-api/frontend-types";
+import { FrontendTool, MCPContext } from "../use-live-api/frontend-types";
 import { LoggerProvider } from "../use-store-logger";
 import LogListener from "../log-listener";
 
@@ -9,6 +9,8 @@ const LiveAPIContext = createContext<UseLiveAPIResults | undefined>(undefined);
 export type LiveAPIProviderProps = {
   baseUrl: string;
   frontEndTools?: FrontendTool[];
+  systemInstruction?: string;
+  context?: MCPContext;
   children: ReactNode;
 };
 
@@ -16,8 +18,10 @@ export const LiveAPIProvider: FC<LiveAPIProviderProps> = ({
   children,
   baseUrl,
   frontEndTools,
+  systemInstruction,
+  context,
 }) => {
-  const liveAPI = useLiveAPI(baseUrl, frontEndTools);
+  const liveAPI = useLiveAPI(baseUrl, frontEndTools, systemInstruction, context);
 
   return (
     <LoggerProvider>

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { logger } from '../utils/logger.utils';
 import { getAIAgentInstance } from '../utils/ai-agent.utils';
+import { Configuration } from '@commercetools/agent-essentials/langchain';
 
 /**
  * Get Gemini ephemeral token
@@ -9,7 +10,9 @@ export const getGeminiEphemeralToken = async (req: Request, res: Response) => {
   try {
     logger.info('Getting Gemini ephemeral token');
 
-    const aiAgent = getAIAgentInstance();
+    const context = req.query as Configuration['context'];
+
+    const aiAgent = getAIAgentInstance(context);
     const token = await aiAgent.getEphemeralToken();
 
     res.status(200).json({
@@ -31,7 +34,9 @@ export const getSDKTools = async (req: Request, res: Response) => {
   try {
     logger.info('Getting SDK tools');
 
-    const aiAgent = getAIAgentInstance();
+    const context = req.query as Configuration['context'];
+
+    const aiAgent = getAIAgentInstance(context);
     const tools = await aiAgent.getSDKTools();
 
     res.status(200).json(tools);
@@ -104,10 +109,11 @@ export const callSDKTool = async (req: Request, res: Response) => {
         message: 'toolName is required',
       });
     }
+    const context = req.query as Configuration['context'];
 
     logger.info(`Calling SDK tool: ${toolName}`, toolArguments);
 
-    const aiAgent = getAIAgentInstance();
+    const aiAgent = getAIAgentInstance(context);
     const result = await aiAgent.callSDKTool(toolName, toolArguments || {});
     if (typeof result !== 'string') {
       return res.status(200).json(result);

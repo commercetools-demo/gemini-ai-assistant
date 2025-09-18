@@ -1,8 +1,8 @@
+import { CommercetoolsAgentEssentials, Configuration } from '@commercetools/agent-essentials/langchain';
+import { AuthToken, GoogleGenAI, Modality } from '@google/genai';
 import { logger } from './logger.utils';
-import { CommercetoolsAgentEssentials } from '@commercetools/agent-essentials/langchain';
-import { AuthToken, FunctionDeclaration, GoogleGenAI, Modality } from '@google/genai';
-import { getExecutableTools } from './tools';
 import { parseStringifiedJson } from './parse-actions';
+import { getExecutableTools } from './tools';
 
 interface ClientConfig {
   apiKey: string;
@@ -47,7 +47,7 @@ export class AIAgentApi {
   private readonly clientSettings: CommercetoolsConfig;
   private readonly toolkit: CommercetoolsAgentEssentials;
 
-  constructor() {
+  constructor(context?: Configuration['context']) {
     // Get configuration from environment variables
     this.config = readAIAgentConfiguration();
     this.clientSettings = readCommercetoolsConfiguration();
@@ -73,7 +73,8 @@ export class AIAgentApi {
         apiUrl: this.clientSettings.apiUrl,
       },
       configuration: {
-          actions: availableActions
+          actions: availableActions,
+          ...(context && {context: context}),
       },
     });
   }
@@ -144,9 +145,9 @@ export class AIAgentApi {
 // Create a singleton instance
 let aiAgentInstance: AIAgentApi | null = null;
 
-export const getAIAgentInstance = () => {
+export const getAIAgentInstance = (context?: Configuration['context']) => {
   if (!aiAgentInstance) {
-    aiAgentInstance = new AIAgentApi();
+    aiAgentInstance = new AIAgentApi(context);
   }
   return aiAgentInstance;
 };

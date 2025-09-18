@@ -1,7 +1,7 @@
 {
   "name": "@commercetools-demo/gemini-ai-assistant-button",
   "description": "Gemini AI Assistant Button for the commercetools platform",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
