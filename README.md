@@ -2,7 +2,7 @@
   <a href="https://commercetools.com/">
     <img alt="commercetools logo" src="https://unpkg.com/@commercetools-frontend/assets/logos/commercetools_primary-logo_horizontal_RGB.png">
   </a></br>
-  <b>AI Assistant for commercetools</b>
+  <b>Gemini AI Assistant for commercetools</b>
 </p>
 
 <b>Note: This project is NOT official commercetools project. Use it at your own risk.</b>
@@ -126,23 +126,6 @@ yarn install
 yarn build
 yarn start  # Runs test application
 ```
-
-## Features
-
-- 🤖 **Natural Language Processing**: Interact with your commerce platform using natural language
-- 🛍️ **Product Search**: AI-powered product discovery and search
-- 🛒 **Cart Management**: Create, read, and update shopping carts through conversation
-- 📊 **Category Navigation**: Browse and explore product categories intuitively
-- 🎙️ **Voice Interaction**: Support for voice-based interactions with Gemini Live API
-- ⚡ **Real-time Streaming**: Live streaming responses for enhanced user experience
-
-## Architecture
-
-The AI assistant follows commercetools connect architecture principles:
-- Lightweight and scalable service design
-- Secure environment-based configuration
-- Point-to-point integration with commercetools APIs
-- Modern React component architecture for frontend integration
 
 ## License
 
